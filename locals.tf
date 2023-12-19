@@ -27,7 +27,6 @@ locals {
 	InterfaceSourceDestCheck = false
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
 	Region = data.aws_region.current.name
-	SshKeyName = var.SshKeyName
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag

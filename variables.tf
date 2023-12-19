@@ -112,12 +112,6 @@ InstanceType must be one of the following types:
 	}
 }
 
-variable "SshKeyName" {
-	default = null
-	description = "Id associated with SSH key pair used for authentication"
-	type = string
-}
-
 variable "Tag" {
 	default = "bps"
 	description = "App ID tag of application using the deployment"
