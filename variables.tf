@@ -11,7 +11,7 @@ variable "AmiOwner" {
 }
 
 variable "Eth0PrivateIpAddress" {
-	default = "10.0.1.11"
+	default = "10.0.10.11"
 	description = "Private IP address associated with the first network interface"
 	type = string
 }
