@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "Ixia BreakingPoint vBlade 9.30 Update 2"
+	default = "Ixia BreakingPoint vBlade 10.00"
 	description = "AMI name used for deploying instances"
 	type = string
 }
@@ -145,7 +145,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "9-30-u2"
+	default = "10-00"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
