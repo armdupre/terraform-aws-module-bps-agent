@@ -1,11 +1,11 @@
 variable "AmiName" {
-	default = "Ixia BreakingPoint vBlade 10.00"
+	default = "Ixia_BreakingPoint_Virtual_Blade_11.00.1.2-prod-cl7jzjvfgu32i"
 	description = "AMI name used for deploying instances"
 	type = string
 }
 
 variable "AmiOwner" {
-	default = "582547558294"
+	default = "aws-marketplace"
 	description = "Owner of AMI used for deploying instances"
 	type = string
 }
@@ -145,7 +145,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "10-00"
+	default = "11-00"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
