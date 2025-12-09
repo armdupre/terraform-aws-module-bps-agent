@@ -11,17 +11,8 @@ resource "aws_instance" "Instance" {
 		Project = local.UserProjectTag
 	}
 	user_data = local.init_cli
-	network_interface {
+	primary_network_interface {
 		network_interface_id = aws_network_interface.Eth0.id
-		device_index = "0"
-	}
-	network_interface {
-		network_interface_id = aws_network_interface.Eth1.id
-		device_index = "1"
-	}
-	network_interface {
-		network_interface_id = aws_network_interface.Eth2.id
-		device_index = "2"
 	}
 	root_block_device {
 		delete_on_termination = local.InstanceEbsDeleteOnTermination
@@ -63,6 +54,12 @@ resource "aws_network_interface" "Eth1" {
 	}
 }
 
+resource "aws_network_interface_attachment" "Eth1" {
+	instance_id = aws_instance.Instance.id
+	network_interface_id = aws_network_interface.Eth1.id
+	device_index = 1
+}
+
 resource "aws_network_interface" "Eth2" {
 	description = local.Eth2Name
 	source_dest_check = local.InterfaceSourceDestCheck
@@ -76,6 +73,12 @@ resource "aws_network_interface" "Eth2" {
 		Owner = local.UserEmailTag
 		Project = local.UserProjectTag
 	}
+}
+
+resource "aws_network_interface_attachment" "Eth2" {
+	instance_id = aws_instance.Instance.id
+	network_interface_id = aws_network_interface.Eth2.id
+	device_index = 2
 }
 
 resource "aws_eip" "Eth0ElasticIp" {

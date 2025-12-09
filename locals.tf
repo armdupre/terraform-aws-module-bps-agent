@@ -26,7 +26,7 @@ locals {
 	InstanceType = var.InstanceType
 	InterfaceSourceDestCheck = false
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
-	Region = data.aws_region.current.name
+	Region = data.aws_region.current.id
 	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
