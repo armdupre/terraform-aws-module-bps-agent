@@ -39,6 +39,14 @@ resource "aws_network_interface" "Eth0" {
 	}
 }
 
+resource "aws_eip" "Eth0ElasticIp" {
+	domain = "vpc"
+	network_interface = aws_network_interface.Eth0.id
+	depends_on = [
+		aws_instance.Instance
+	]
+}
+
 resource "aws_network_interface" "Eth1" {
 	description = local.Eth1Name
 	source_dest_check = local.InterfaceSourceDestCheck
@@ -81,9 +89,8 @@ resource "aws_network_interface_attachment" "Eth2" {
 	device_index = 2
 }
 
-resource "aws_eip" "Eth0ElasticIp" {
-	domain = "vpc"
-	network_interface = aws_network_interface.Eth0.id
+resource "time_sleep" "SleepDelay" {
+	create_duration = local.SleepDelay
 	depends_on = [
 		aws_instance.Instance
 	]
