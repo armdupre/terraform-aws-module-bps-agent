@@ -44,7 +44,7 @@ variable "Eth1SubnetId" {
 
 variable "Eth2PrivateIpAddresses" {
 	default = [ "10.0.3.12", "10.0.3.13", "10.0.3.14", "10.0.3.15", "10.0.3.16", "10.0.3.17", "10.0.3.18", "10.0.3.19", "10.0.3.20", "10.0.3.21" ]
-	description = "List of IP addresses associated with the second network interface"
+	description = "List of IP addresses associated with the third network interface"
 	type = list(string)
 }
 
@@ -83,6 +83,11 @@ InstanceType must be one of the following types:
 	c6in.xlarge, c6in.2xlarge, c6in.4xlarge, c6in.8xlarge, c6in.12xlarge, c6in.16xlarge, c6in.24xlarge, c6in.32xlarge
 		EOF
 	}
+}
+
+variable "PlacementGroupId" {
+	description = "Id of the placment group to which instance has been deployed"
+	type = string
 }
 
 variable "SleepDelay" {
@@ -132,7 +137,6 @@ variable "Version" {
 variable "init_cli" {
 	default = <<-EOF
 #!/bin/bash -xe
-yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 systemctl status amazon-ssm-agent
     EOF
 	type = string

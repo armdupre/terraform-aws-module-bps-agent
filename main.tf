@@ -5,6 +5,7 @@ resource "aws_instance" "Instance" {
 	instance_type = local.InstanceType
 	monitoring = local.InstanceMonitoring
 	iam_instance_profile = aws_iam_instance_profile.IamInstanceProfile.id
+	placement_group = local.PlacementGroupId
 	tags = {
 		Name = local.InstanceName
 		Owner = local.UserEmailTag

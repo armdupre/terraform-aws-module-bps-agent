@@ -16,5 +16,6 @@ module "Agent" {
 	Eth1SubnetId = aws_subnet.PrivateSubnet.id
 	Eth2SecurityGroupId = aws_security_group.PrivateSecurityGroup.id
 	Eth2SubnetId = aws_subnet.PrivateSubnet.id
+	PlacementGroupId = aws_placement_group.PlacementGroup.id
 }
 ```

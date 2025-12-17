@@ -25,6 +25,7 @@ locals {
 	InstanceName = var.InstanceName == null ? "${local.Preamble}-instance-${local.Region}" : var.InstanceName
 	InstanceType = var.InstanceType
 	InterfaceSourceDestCheck = false
+	PlacementGroupId = var.PlacementGroupId
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
 	Region = data.aws_region.current.id
 	SleepDelay = var.SleepDelay
